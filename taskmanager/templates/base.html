@@ -15,7 +15,7 @@
 <body>
     <header>
         <nav class="navbar px-4">
-            <a href="" class="logo">
+            <a href="{{ url_for('home') }}" class="logo">
                 <p id="offcanvasRightLabel" class="m-0">Task Manager</p>
             </a>
             <!-- Small screen nav <= 992px -->
@@ -35,10 +35,10 @@
                             <a href="{{ url_for('home') }}">Home</a>
                         </li>
                         <li class="list-group-item p-5" data-bs-dismiss="offcanvas" aria-label="Close">
-                            <a href="#">New Task</a>
+                            <a href="">New Task</a>
                         </li>
                         <li class="list-group-item p-5" data-bs-dismiss="offcanvas" aria-label="Close">
-                            <a href="#">Categories</a>
+                            <a href="{{ url_for('categories') }}">Categories</a>
                         </li>
                     </ul>
                 </div>
@@ -49,16 +49,16 @@
                         <a href="{{ url_for('home') }}">Home</a>
                     </li>
                     <li class="navigation-link ms-5">
-                        <a href="#">New Task</a>
+                        <a href="">New Task</a>
                     </li>
                     <li class="navigation-link ms-5">
-                        <a href="#">Categories</a>
+                        <a href="{{ url_for('categories') }}">Categories</a>
                     </li>
                 </ul>
         </nav>
     </header>
 
-    <main class="container-fluid">
+    <main class="container-fluid p-0 m-0">
         {% block content %}
         {% endblock %}
     </main>

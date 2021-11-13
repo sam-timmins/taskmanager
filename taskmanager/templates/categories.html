@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row container-fluid my-5 mx-0 p-0">
+    <div class="col-12 d-flex justify-content-center align-items-center my-5 p-0">
+        <h1>Categories</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center align-items-center my-2 p-0">
+        <button type="button" class="btn btn-primary btn-lg">
+            <a href="{{ url_for('add_category') }}" class="btn btn-primary btn-lg">
+                Add Category <i class="fas fa-plus"></i>
+            </a>
+        </button>
+    </div>
+
+
+</div>
+
+{% endblock %}
