@@ -7,7 +7,7 @@
         <h1>Categories</h1>
     </div>
 </div>
-<div class="row">
+<div class="row container-fluid">
     <div class="col-12 d-flex justify-content-center align-items-center my-2 p-0">
         <button type="button" class="btn btn-primary btn-lg">
             <a href="{{ url_for('add_category') }}" class="btn btn-primary btn-lg">
@@ -16,14 +16,14 @@
         </button>
     </div>
 </div>
-<div class="row container m-4">
+<div class="row container d-flex justify-content-center align-items-center mx-auto my-5 g-0">
     {% for category in categories %}
     <div class="col-sm-6 col-lg-4">
-        <div class="card">
+        <div class="card m-3">
             <div class="card-body">
                 <h5 class="card-title text-center my-5">{{ category.category_name }}</h5>
                 <div class="d-flex justify-content-center align-items-center my-4">
-                    <a href="#" class="btn btn-warning btn-lg card-link">Edit</a>
+                    <a href="{{ url_for('edit_category', category_id=category.id) }}" class="btn btn-warning btn-lg card-link">Edit</a>
                     <a href="#" class="btn btn-danger btn-lg card-link">Delete</a>
                 </div>  
 
