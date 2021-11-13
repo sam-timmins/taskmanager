@@ -15,8 +15,22 @@
             </a>
         </button>
     </div>
+</div>
+<div class="row container m-4">
+    {% for category in categories %}
+    <div class="col-sm-6 col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center my-5">{{ category.category_name }}</h5>
+                <div class="d-flex justify-content-center align-items-center my-4">
+                    <a href="#" class="btn btn-warning btn-lg card-link">Edit</a>
+                    <a href="#" class="btn btn-danger btn-lg card-link">Delete</a>
+                </div>  
 
-
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
