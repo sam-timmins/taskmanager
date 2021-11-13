@@ -17,11 +17,12 @@
                     <div class="row container-fluid">
                         <div class="col-12">
                             <div class="input-group mb-3">
-                                <label for="task_name" class="input-group-text" id="inputGroup-sizing-default">Task
-                                    Name</label>
-                                <input id="task_name" name="task_name" type="text" class="form-control"
-                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                    minlength="3" maxlength="25" required>
+                                <label for="task_name" class="input-group-text" id="inputGroup-sizing-default">
+                                    Task Name
+                                </label>
+                                <input id="task_name" name="task_name" type="text"
+                                    class="form-control input-group-inputs" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default" minlength="3" maxlength="25" required>
                             </div>
                         </div>
                     </div>
@@ -29,21 +30,25 @@
                     <div class="row container-fluid">
                         <div class="col-12">
                             <div class="input-group mb-3">
-                                <label for="task_name" class="input-group-text" id="inputGroup-sizing-default">Task
-                                    Name</label>
-                                <input id="task_name" name="task_name" type="text" class="form-control"
-                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                    minlength="3" maxlength="25" required>
+                                <label for="task_description" class="input-group-text" id="inputGroup-sizing-default">
+                                    Task Description
+                                </label>
+                                <textarea id="task_description" name="task_description" type="text"
+                                    class="form-control input-group-inputs" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default" minlength="5" maxlength="200" rows="5"
+                                    required>
+                                </textarea>
                             </div>
                         </div>
                     </div>
-                    <!-- Task Date -->
+                    <!-- Due Date -->
                     <div class="row container-fluid">
                         <div class="col-12">
                             <div class="input-group mb-3">
-                                <label for="task_name" class="input-group-text" id="inputGroup-sizing-default">Task
-                                    Name</label>
-                                <input id="task_name" name="task_name" type="text" class="form-control"
+                                <label for="due_date" class="input-group-text" id="inputGroup-sizing-default">
+                                    Due Date
+                                </label>
+                                <input id="due_date" name="due_date" type="date" class="form-control input-group-inputs"
                                     aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
                                     minlength="3" maxlength="25" required>
                             </div>
@@ -53,11 +58,15 @@
                     <div class="row container-fluid">
                         <div class="col-12">
                             <div class="input-group mb-3">
-                                <label for="task_name" class="input-group-text" id="inputGroup-sizing-default">Task
-                                    Name</label>
-                                <input id="task_name" name="task_name" type="text" class="form-control"
-                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                    minlength="3" maxlength="25" required>
+                                <label for="is_urgent" class="input-group-text input-group-inputs"
+                                    id="inputGroup-sizing-default">
+                                    Is Urgent
+                                </label>
+                                <div
+                                    class="form-check form-switch mx-5 d-flex justify-content-center align-items-center">
+                                    <input class="form-check-input form-control input-group-inputs" type="checkbox"
+                                        role="switch" id="task_name" name="task_name">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -65,11 +74,16 @@
                     <div class="row container-fluid">
                         <div class="col-12">
                             <div class="input-group mb-3">
-                                <label for="task_name" class="input-group-text" id="inputGroup-sizing-default">Task
-                                    Name</label>
-                                <input id="task_name" name="task_name" type="text" class="form-control"
-                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                    minlength="3" maxlength="25" required>
+                                <label for="category_id" class="input-group-text">
+                                    Choose Category
+                                </label>
+                                <select id="category_id" name="category_id" class="form-select input-group-inputs"
+                                    required>
+                                    <option value="" disabled selected></option>
+                                    {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.category_name }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
                     </div>

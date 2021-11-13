@@ -103,6 +103,11 @@ body {
     height: 15rem;
 }
 
-.input-group-text, .btn {
+.input-group-text, .btn, .input-group-inputs {
     font-size: 1.5rem;
 }
+
+.input-group-text {
+    width: 35%;
+}
+
