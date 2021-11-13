@@ -236,3 +236,29 @@ psql -d taskmanager
 ```
 \q
 ```
+
+# Trouble shooting
+
+* If you get the error below when trying to run the application in the browser
+```
+psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: No such file or directory
+        Is the server running locally and accepting connections on that socket?
+```
+
+Enter  
+```
+set_pg
+```
+ 
+```
+psql
+```
+
+```
+\q
+```
+Then run the application again
+
+```
+python3 run.py
+```

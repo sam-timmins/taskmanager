@@ -2,9 +2,18 @@
 
 {% block content %}
 
-<div class="row container-fluid my-5 mx-0 p-0">
-    <div class="col-12 d-flex justify-content-center align-items-center my-5 p-0">
-        <h1>Tasks</h1>
+<div class="row container-fluid my-3 mx-0 p-0">
+    <div class="col-12 d-flex justify-content-center align-items-center my-3 p-0">
+        <h1 class="page-title">Tasks</h1>
+    </div>
+</div>
+<div class="row container-fluid">
+    <div class="col-12 d-flex justify-content-center align-items-center my-2 p-0">
+        <button type="button" class="btn btn-primary btn-lg">
+            <a href="{{ url_for('add_task') }}" class="btn btn-primary btn-lg">
+                Add Task <i class="fas fa-plus"></i>
+            </a>
+        </button>
     </div>
 </div>
 

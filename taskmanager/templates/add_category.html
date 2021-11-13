@@ -9,11 +9,11 @@
 </div>
 <div class="row container m-auto d-flex justify-content-center align-items-center">
     <div class="col-12 col-lg-8">
-            <div class="card add-category-card">
-                <div class="card-body d-flex flex-column justify-content-around align-items-center">
-                    <form class="d-flex flex-column justify-content-center align-items-center" method="POST" action="{{ url_for('add_category') }}">
-                    <div class="input-group mb-3">
-                        <label for="category_name" class="input-group-text" id="inputGroup-sizing-default">Category name</label>
+        <div class="card add-task-card">
+            <div class="card-body d-flex flex-column justify-content-around align-items-center p-5">
+                    <form class="d-flex flex-column justify-content-center align-items-center container-fluid" method="POST" action="{{ url_for('add_category') }}">
+                    <div class="input-group mb-3 container-fluid">
+                        <label for="category_name" class="input-group-text" id="inputGroup-sizing-default">Category Name</label>
                         <input id="category_name" name="category_name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" minlength="3" maxlength="25" required>
                     </div>
                     <div class="input-group mt-5 d-flex justify-content-center align-items-center">
@@ -27,8 +27,6 @@
  
     </div>
 </div>
-
-
 
 
 

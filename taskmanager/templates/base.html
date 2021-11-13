@@ -35,7 +35,7 @@
                             <a href="{{ url_for('home') }}">Home</a>
                         </li>
                         <li class="list-group-item p-5" data-bs-dismiss="offcanvas" aria-label="Close">
-                            <a href="">New Task</a>
+                            <a href="{{ url_for('add_task') }}">New Task</a>
                         </li>
                         <li class="list-group-item p-5" data-bs-dismiss="offcanvas" aria-label="Close">
                             <a href="{{ url_for('categories') }}">Categories</a>
@@ -49,7 +49,7 @@
                         <a href="{{ url_for('home') }}">Home</a>
                     </li>
                     <li class="navigation-link ms-5">
-                        <a href="">New Task</a>
+                        <a href="{{ url_for('add_task') }}">New Task</a>
                     </li>
                     <li class="navigation-link ms-5">
                         <a href="{{ url_for('categories') }}">Categories</a>
