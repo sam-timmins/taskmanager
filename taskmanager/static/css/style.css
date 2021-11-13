@@ -95,3 +95,14 @@ body {
     font-size: 2rem;
 }
 
+.page-title {
+    font-size: 3rem;
+}
+
+.add-category-card {
+    height: 15rem;
+}
+
+.input-group-text, .btn {
+    font-size: 1.5rem;
+}
