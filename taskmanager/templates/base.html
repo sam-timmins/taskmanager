@@ -1,18 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-<title>Task Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <title>Task Manager</title>
 </head>
+
 <body>
-Hello World!
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <header>
+        <nav class="navbar px-4">
+            <a href="" class="logo">
+                <p id="offcanvasRightLabel" class="m-0">Task Manager</p>
+            </a>
+            <!-- Small screen nav <= 992px -->
+            <i class="fas fa-bars d-md-none hamburger" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight""></i>
+        <div class=" offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header mx-3">
+                    <a href="{{ url_for('home') }}" class="logo">
+                        <p id="offcanvasRightLabel" class="m-0 slide-nav-logo">/p>
+                    </a>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="d-md-none list-group list-group-flush mx-auto">
+                        <li class="list-group-item p-5" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <a href="{{ url_for('home') }}">Home</a>
+                        </li>
+                        <li class="list-group-item p-5" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <a href="#">New Task</a>
+                        </li>
+                        <li class="list-group-item p-5" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <a href="#">Categories</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <!-- Large screen nav > 992px -->
+                <ul class="d-none d-md-flex flex-row m-0">
+                    <li class="navigation-link ms-5">
+                        <a href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="navigation-link ms-5">
+                        <a href="#">New Task</a>
+                    </li>
+                    <li class="navigation-link ms-5">
+                        <a href="#">Categories</a>
+                    </li>
+                </ul>
+        </nav>
+    </header>
+
+    <main class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="container-fluid fixed-bottom text-center footer m-0 p-3">
+        <p>&copy daffy designs</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static',filename='js/script.js') }}"></script>
 </body>
+
 </html>

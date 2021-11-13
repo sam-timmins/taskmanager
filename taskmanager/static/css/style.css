@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&display=swap');
+
+:root {
+    --blue: #004c6c;
+    --red: #990000;
+    --white: #fafafa;
+    --orange: #F0823C;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: var(--white);
+}
+
+.logo {
+    font-family: 'Source Code Pro', monospace;
+    color: var(--white);
+    font-size: 3rem;
+    text-decoration: none; 
+    height: auto;
+}
+
+.slide-nav-logo {
+    color: var(--blue);
+}
+
+.hamburger {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+.navbar, .footer {
+    background-color: var(--blue);
+    color: var(--white);
+    height: 5rem;
+}
+
+.offcanvas-end {
+    width: 90%;
+}
+
+.offcanvas {
+    height: 90vh;
+    background-color: var(--white);
+    border-radius: 0 0 0 1rem;
+    border-left: .5rem solid var(--blue);
+    border-bottom: .5rem solid var(--blue);
+}
+
+.offcanvas-backdrop {
+    background-color: var(--blue);
+}
+
+.offcanvas-backdrop.show {
+    opacity: 0.2;
+}
+
+.list-group {
+    height: 100%;
+}
+
+.list-group-item {
+    background-color: var(--white);
+}
+
+.list-group-item a {
+    color: var(--blue);
+    text-decoration: none;
+    padding: 3rem;
+    font-size: 2rem;
+}
+
+.navigation-link {
+    list-style: none;
+}
+
+.navigation-link a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 2rem;
+}
