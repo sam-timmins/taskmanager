@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from taskmanager import app, db
 from taskmanager.models import Category, Task
 
@@ -15,4 +15,13 @@ def categories():
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    # category is set to a new instance of the Category model from the models.py file
+    # the form being posted retrieves the name-attribute.
+    if request.method == "POST":
+        category = Category(category_name=request.form.get("category_name"))
+    # add to database
+        db.session.add(category)
+        db.session.commit()
+    # redirect to categories page
+        return redirect(url_for("categories"))
     return render_template("add_category.html")
