@@ -1,3 +1,19 @@
+# Flask Folder Structure
+
+* taskmanager (package in the root directory)
+    * static
+        * css
+            * style.css
+        * js
+            * script.js
+        * images
+    * templates
+        * base.html
+        * login.html
+    * ```__init__.py```
+    * ```modules.py```
+    * ```routes.py.py```
+
 # Run a Basic Flask Application
 
 * Install the python packages into the terminal
@@ -109,7 +125,114 @@ python3 run.py
 
 
 # Create the database schema
-### Defining mnodules
+### Defining modules
 
 * Create a ```modules.py``` file within the taskmanager package
 
+* Create class based tables
+```py
+from taskmanager import db
+
+
+class Category(db.Model):
+    # schema for the Category model
+    id = db.Column(db.Integer, primary_key=True)
+    # string with max length of 25, the string has to be unique and can't be empty
+    category_name = db.Column(db.String(25), unique=True, nullable=False)
+    tasks = db.relationship("Task", backref="category", cascade="all, delete", lazy=True)
+
+    def __repr__(self):
+        # __repr__ to represent itself in the form of a string
+        return self.category_name
+
+
+class Task(db.Model):
+    # schema for the Task model
+    id = db.Column(db.Integer, primary_key=True)
+    # string with max length of 50, the string has to be unique and can't be empty
+    task_name = db.Column(db.String(50), unique=True, nullable=False)
+    # textarea that can't be empty
+    task_description = db.Column(db.Text, nullable=False)
+    # true/false with default set to false and can't be empty
+    is_urgent = db.Column(db.Boolean, default=False, nullable=False)
+    # date field that can't be empty
+    due_date = db.Column(db.Date, nullable=False)
+    # a integer that is a foreign key. The value is the id frim the category table
+    # if the category id is deleted, the task associated will be deleted
+    category_id = db.Column(db.Integer, db.ForeignKey("category.id", ondelete="CASCADE"), nullable=False)
+
+
+    def __repr__(self):
+        # __repr__ to represent itself in the form of a string
+        return "#{0} - Task: {1} | Urgent: {2}".format(
+            self.id, self.task_name, self.is_urgent
+        )
+```
+
+
+* Within the terminal login to the Postgres CLI by entering
+```
+psql
+```
+
+* Create a database by entering
+```
+postgres=# CREATE DATABASE taskmanager;
+```
+
+* Switch over to that connection 
+```
+\c taskmanager;
+
+You are now connected to database "taskmanager" as user "gitpod".
+taskmanager=# 
+```
+* Exit from the Postgres CLI by entering
+```
+\q
+```
+
+
+## Generate and Migrate Models to the database
+
+* Access the python interpreter in the terminal by entering
+```
+python3
+```
+
+* import db from the taskmanager package
+
+```
+from taskmanager import db
+```
+
+* import db from the taskmanager package
+
+```
+from taskmanager import db
+```
+
+* populate the database with the tables from ```models.py``` and their relationships
+```
+db.create_all()
+```
+
+* Exit the python interpreter
+```
+exit()
+```
+
+* To check thety exist
+```
+psql -d taskmanager
+```
+
+* Then 
+```
+\dt
+```
+
+* Exit from the Postgres CLI by entering
+```
+\q
+```
