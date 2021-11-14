@@ -20,26 +20,27 @@
 
 <div class="row container-fluid d-flex justify-content-center align-items-center my-5">
     <div class="col-8">
-        {% for task in tasks %}
-        <div class="accordion" id="accordionExample{{ task.id }}">
+        <div class="accordion" id="accordionExample">
+            {% for task in tasks %}
             <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ task.id }}" aria-expanded="true" aria-controls="collapseOne">
-                    <strong>{{task.task_name}}</strong> : {{ task.due_date }}
+              <h2 class="accordion-header" id="heading{{ task.id }}">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ task.id }}" aria-expanded="true" aria-controls="collapse{{ task.id }}">
+                    <strong>{{task.task_name}}</strong> : {{ task.due_date }}  
                     {% if task.is_urgent == True %}
-                        <i class="fas fa-exclamation-circle"></i> 
+                        <i class="fas fa-exclamation-circle task-important"></i> 
                     {% endif %}
                 </button>
               </h2>
-              <div id="collapse{{ task.id }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample{{ task.id }}">
+              <div id="collapse{{ task.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ task.id }}" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <strong>{{ task.task_category }}</strong>
                     <p>{{ task.task_description }}</p>
                 </div>
               </div>
             </div>
+            {% endfor %}
           </div>
-          {% endfor %}
+          
     </div>
 </div>
 
