@@ -7,19 +7,22 @@
         <h1>Edit Category</h1>
     </div>
 </div>
-<div class="row container m-auto d-flex justify-content-center align-items-center">
+<div class="row container-fluid m-auto d-flex justify-content-center align-items-center">
     <div class="col-6">
             <div class="card d-flex justify-content-center align-items-center">
-                <div class="card-body">
-                    <form class="d-flex flex-column justify-content-center align-items-center" method="POST" action="{{ url_for('edit_category', category_id=category.id) }}">
-                    <div class="input-group mb-3">
+                <div class="card-body container-fluid">
+                    <form class=" d-flex flex-column justify-content-center align-items-center" method="POST" action="{{ url_for('edit_category', category_id=category.id) }}">
+                    <div class="input-group my-2 p-5">
                         <label for="category_name" class="input-group-text" id="inputGroup-sizing-default">Category name</label>
                         <input id="category_name" name="category_name" value="{{ category.category_name }}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" minlength="3" maxlength="25" required>
                     </div>
-                    <div class="input-group mb-3 d-flex justify-content-center align-items-center">
+                    <div class="container-fluid d-flex justify-content-around align-items-center my-4">
                         <button class="btn btn-primary" type="submit">
-                            Edit Category <i class="fas fa-edit"></i>
+                            Save Changes
                         </button>
+                        <a href="{{ url_for('categories') }}"
+                            class="btn btn-danger btn-lg card-link link-button">Discard Changes</a>
+                    </div>
                     </div>
                     </form>   
                 </div>
