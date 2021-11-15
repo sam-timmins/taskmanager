@@ -344,3 +344,20 @@ else:
 ```
 
 * Commit and push to GitHub
+
+* Go back to Heroku
+* Click the More button at the top right and 'Run Console'
+```
+python3
+```
+```
+from taskmanager import db
+```
+```
+db.create_all()
+```
+```
+exit()
+```
+
+* Click open app and it should be live
