@@ -262,3 +262,66 @@ Then run the application again
 ```
 python3 run.py
 ```
+
+
+# Deployment
+
+To see the installed packages on the workspace environment
+```
+pip3 list
+```
+
+'freeze' these packages, and have the result output into a new file called 'requirements.txt'
+```
+pip3 freeze --local > requirements.txt
+```
+
+Tell Heroku which file runs the app (Procfile), in this case ```run.py```
+```
+echo web: python run.py > Procfile
+```
+Go into the newly created Procfile and make sure there are no whitespace lines under the text
+
+Commit the requirements.txt file first
+```
+git add requirements.txt
+
+git commit -m "Add requirements.txt"
+```
+
+Commit the Procfile
+```
+git add Procfile
+
+git commit -m "Add Procfile"
+```
+
+Then push them to github together
+
+```
+git push
+```
+
+* Go to [Heroku](https://heroku.com/) and create a new app
+* Go the the resources tab and then search for Heroku Postgres in the Add-on's search bar
+* Select Hobby Dev - Free and Submit Order Form
+* Open the Settings tab and go to config vars then reveal config vars
+* Add the variables saved in the ```env.py``` file except for the 'Development' and 'DB_URL'
+
+```
+IP, 0.0.0.0
+PORT, 5000
+SECRET_KEY, any_secret_key
+DEBUG, True
+```
+REMEMBER  TO CHANGE DEBUG TO FALSE BEFORE SUBMISSION
+
+* Go back to workspace and open ```__init__.py```
+```PY
+if os.environ.get("DEVELOPMENT") == "True":
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+```
+
+* Commit to GitHub

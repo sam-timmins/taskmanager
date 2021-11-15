@@ -62,14 +62,20 @@
                         <div class="modal-footer">
                             <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</a>
                             <a href="{{ url_for('delete_task', task_id=task.id) }}" type="button"
-                                class="btn btn-primary" id="liveToastBtn">Yes</a>
+                                class="btn btn-primary">Yes</a>
                         </div>
                     </div>
                 </div>
             </div>
+
             {% endfor %}
         </div>
     </div>
 </div>
+
+
+
+
+
 
 {% endblock %}
