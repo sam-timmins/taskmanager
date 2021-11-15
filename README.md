@@ -324,4 +324,23 @@ else:
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 ```
 
-* Commit to GitHub
+* Commit to GitHub and go back to Heroku
+* Go to the deploy tab and search for the correct reopo name
+* Enabe automatic deploys
+* Deploy Branch
+* Go to settings tab and reveal config vars
+* If the DATABASE_URL does not show 'postgresql://', go the the ```__init__.py``` file
+* import re
+```py
+import re
+```
+* In the else statement of the Heroku set up, change to the following
+```py
+else:
+    uri = os.environ.get("DATABASE_URL")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri
+```
+
+* Commit and push to GitHub
